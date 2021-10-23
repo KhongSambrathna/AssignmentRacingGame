@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Link stylesheet-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--Link Script-->
+    <script src="js/jquery-3.6.0.js"></script>
+    <style>
+        body {
+            overflow: hidden;
+        }
+        .player:nth-child(1) {
+            left: 5px;
+            animation: car1 30s linear infinite;
+        }
+        .player:nth-child(2) {
+            left: 400px;
+        }
+
+        .player:nth-child(3) {
+            left: 1000px;
+        }
+        @keyframes car1 {
+            0% {
+                left:-20px;
+            }
+            100% {
+                left: 1400px;
+            }
+        }
+        button {
+            position: absolute;
+            padding: 20px;
+            left: 50%;
+            top: 50%;
+            z-index: 120;
+            font-size: 13pt;
+            transform: translateY(-50%) translateX(-50%);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body onload="start()">
+    <section class="scene">
+        <div class="sun"></div>
+        <div class="bg">
+            <img class="player" id="player-1" src="img/car-1.png">
+            <img class="player" id="player-2" src="img/car-2.png">
+            <img class="player" id="player-3" src="img/car-3.png">
+        </div>
+    </section>
+    <button onclick="window.open('race.html','_self')">Play Now</button>
+    <!--Link Script-->
+    <script>
+        //Night Mode
+        const sun = document.querySelector(".sun");
+        const body = document.querySelector("body");
+        sun.onclick = function()
+        {
+            body.classList.toggle("dark");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.scene {
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(#a6d8ff, #fff, #fff);
+}
+
+.dark .scene {
+    background: #222833;
+}
+
+.sun {
+    position: absolute;
+    top: 100px;
+    left: 55%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 50px #fff;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.dark .sun {
+    left: 45%;
+    box-shadow: 0 0 0 #fff;
+}
+
+.dark .sun:before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    width: 100%;
+    height: 100%;
+    background: #222833;
+    border-radius: 50%;
+}
+
+.bg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 280px;
+    background-image: url('../img/bg.png');
+    animation: animateBg 5s linear infinite;
+    background-size: 1500px;
+    background-repeat: repeat-x;
+}
+@keyframes animateBg {
+    0% {
+        background-position-x: 0px;
+    }
+    100% {
+        background-position-x: -1500px;
+    }
+}
+
+.player {
+    max-width: 70px;
+    position: absolute;
+    bottom: 1px;
+    transform: rotateY(180deg);
+    z-index: 10;
+}
+
+.player:nth-child(2) {
+    bottom: 36px;
+    z-index: 9;
+}
+
+.player:nth-child(3) {
+    bottom: 73px;
+    z-index: 8;
+}
+
+.result {
+    position: absolute;
+    width: 700px;
+    height: 500px;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: #ccc
+}
+
+.race-result {
+    width: 0;
+    height: 0;
+    border-top: 50px solid red;
+    border-right: 50px solid transparent;
+    border-left: 350px solid red;
+}
+
+.result-text {
+    position: relative;
+    font-size: 20pt;
+    top: -40px;
+    left: -300px;
+}
+table {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    border-collapse: collapse;
+}
+table , tr, td {
+    border: 1px solid black;
+}   
+
+table , tr, td {
+    height: 60px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+tbody tr td img {
+    width: 70px;
+    transform: rotateY(180deg);
+}
+
+.result-foot {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    left: 0;
+    bottom: 0;
+}
+
+.share {
+    width: 50%;
+    height: 100%;
+    float: left;
+    text-align: center;
+}
+
+.share div:nth-child(1){
+    font-size: 15pt;
+    font-weight: 600;
+    color: white;
+}
+
+.share img {
+    width: 30px;
+    margin: 20px 5px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-family: sans-serif;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.home {
+    right: 29%;
+}
+
+.again {
+    right: 9%;
+}
