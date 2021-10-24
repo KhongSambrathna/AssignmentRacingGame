@@ -82,6 +82,7 @@
 }
 
 .result {
+    display: none;
     position: absolute;
     width: 700px;
     height: 500px;

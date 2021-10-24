@@ -1,5 +1,3 @@
-document.getElementsByClassName('result')[0].style.display = "none";
-
 //Night Mode
 const sun = document.querySelector(".sun");
 const body = document.querySelector("body");
