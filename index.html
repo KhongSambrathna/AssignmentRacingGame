@@ -4,65 +4,233 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="shortcut icon" href="img/racing-flag.png" type="image/x-icon">
+    <title>Race</title>
     <!--Link stylesheet-->
     <link rel="stylesheet" href="css/style.css">
     <!--Link Script-->
     <script src="js/jquery-3.6.0.js"></script>
+    <!--Internal Style Sheet-->
     <style>
-        body {
-            overflow: hidden;
+        /* Loading Page */
+        .load-wrapp {
+        border-radius: 5px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
         }
-        .player:nth-child(1) {
-            left: 5px;
-            animation: car1 30s linear infinite;
-        }
-        .player:nth-child(2) {
-            left: 400px;
+        .letter-holder {
+        padding: 16px;
         }
 
-        .player:nth-child(3) {
-            left: 1000px;
+        .letter {
+        float: left;
+        font-size: 14px;
+        color: #777;
         }
-        @keyframes car1 {
-            0% {
-                left:-20px;
-            }
-            100% {
-                left: 1400px;
-            }
+
+        .spinner {
+        position: relative;
+        width: 45px;
+        height: 45px;
+        margin: 0 auto;
         }
-        button {
-            position: absolute;
-            padding: 20px;
-            left: 50%;
-            top: 50%;
-            z-index: 120;
-            font-size: 13pt;
-            transform: translateY(-50%) translateX(-50%);
-            cursor: pointer;
+        /* =Animate the stuff*/
+        .load-6 .letter {
+        animation-name: loadingF;
+        animation-duration: 1.6s;
+        animation-iteration-count: infinite;
+        animation-direction: linear;
         }
-    </style>
+
+        .l-1 {
+        animation-delay: 0.48s;
+        }
+        .l-2 {
+        animation-delay: 0.6s;
+        }
+        .l-3 {
+        animation-delay: 0.72s;
+        }
+        .l-4 {
+        animation-delay: 0.84s;
+        }
+        .l-5 {
+        animation-delay: 0.96s;
+        }
+        .l-6 {
+        animation-delay: 1.08s;
+        }
+        .l-7 {
+        animation-delay: 1.2s;
+        }
+        .l-8 {
+        animation-delay: 1.32s;
+        }
+        .l-9 {
+        animation-delay: 1.44s;
+        }
+        .l-10 {
+        animation-delay: 1.56s;
+        }
+        @keyframes loadingF {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+        }
+
+        </style>
 </head>
-<body onload="start()">
-    <section class="scene">
-        <div class="sun"></div>
-        <div class="bg">
-            <img class="player" id="player-1" src="img/car-1.png">
-            <img class="player" id="player-2" src="img/car-2.png">
-            <img class="player" id="player-3" src="img/car-3.png">
+<body>
+    <div class="load-wrapp" id="loading">
+        <div class="load-6">
+          <div class="letter-holder">
+            <div class="l-1 letter">L</div>
+            <div class="l-2 letter">o</div>
+            <div class="l-3 letter">a</div>
+            <div class="l-4 letter">d</div>
+            <div class="l-5 letter">i</div>
+            <div class="l-6 letter">n</div>
+            <div class="l-7 letter">g</div>
+            <div class="l-8 letter">.</div>
+            <div class="l-9 letter">.</div>
+            <div class="l-10 letter">.</div>
+          </div>
         </div>
-    </section>
-    <button onclick="window.open('race.html','_self')">Play Now</button>
+    </div>  
+    <div id="loading-page">
+        <section class="scene">
+            <div class="sun"></div>
+            <div class="bg">
+                <img class="player" id="player-1" src="img/car-1.png">
+                <img class="player" id="player-2" src="img/car-2.png">
+                <img class="player" id="player-3" src="img/car-3.png">
+            </div>
+        </section>
+        <div class="result">
+            <div class="race-result">
+                <div class="result-text">Race&nbsp;Results</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Rank</td>
+                            <td>Player</td>
+                            <td>Score</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="top1"></tr>
+                        <tr id="top2"></tr>
+                        <tr id="top3"></tr>
+                    </tbody>
+                </table>
+                <div class="result-foot">
+                    <div class="share">
+                        <div>Share On Social Media</div>
+                        <div>
+                            <a href="#"><img src="img/facebook.png"></a>
+                            <a href="#"><img src="img/twitter.png"></a>
+                            <a href="#"><img src="img/messenger.png"></a>
+                            <a href="#"><img src="img/instagram.png"></a>
+                        </div>
+                    </div>
+                    <div class="result-back-again">
+                        <div>
+                            <button class="home btn" id="back-home">Home</button>
+                            <button class="again btn" id="race-again">Race again</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="container">
+            <div class="force-overflow">
+                <nav>
+                    <div id="sub-nav">
+                        <div>Current version V0.1.5</div>
+                    </div>
+                    <div id="nav">
+                        <div id="logo" onclick="window.open('index.html', '_self')">RACING.COM</div>
+                        <ul>
+                            <li id="race">RACE</li>
+                            <li><a href="#about-us">ABOUT</a></li>
+                            <li><a href="#contact-us">CONTACT</a></li>
+                            <li>NIGHT MODE</li>
+                        </ul>
+                        <img id="nightModeToggle" class="night-mode-toggle" src="img/toggle.png" alt="night-mode-off">
+                    </div>
+                </nav>
+                <div class="main">
+                    <div class="main-left">
+                        <h2 class="font-white">Random Racing Game</h2>
+                        <h2 class="font-white">Random Racing Results</h2>
+                        <p class="font-white pt-10"> Racing with one click to see random results of three player when racing reached goal. Let's 
+                            try racing now 
+                        </p>
+                        <input type="button" value="Get Started" id="getStarted" class="btn hv-font-white" style="top: 75%;">
+                    </div>
+                    <div class="main-right"></div>
+                </div>
+                <div class="main">
+                    <div class="main-left bg-tran">
+                        <h2>Night Mode Function</h2>
+                        <p class="pt-10"> We have created night mode function for protect your eyes when open our website
+                            at night. If you interest at it please turn it on. You can Find night mode button at navigation
+                            right side and try use this function.
+                        </p>
+                    </div>
+                    <div class="main-right night-bg"></div>
+                </div>
+                <div class="race-result-function">
+                    <div>
+                        <h2>Race Result</h2>
+                        <p class="pt-10"> 
+                            When you start game speed of cars is random, The car highest rank depend on they luck.
+                            In the end of racing match a result table will show up. You will see which car first, 
+                            second and third place with score it earn too.
+                        </p>
+                    </div>
+                    <img id="race-result-img" src="img/race-result.png" alt="race result">
+                </div>
+                <div id="about-us">
+                    <center><h1 class="font-white pt-15 pb-15"> - Our Mission - </h1></center>
+                    <center><p class="font-white pt-15 pb-15">To create random racing game asignment</p></center>
+                    <center><h1 class="font-white pt-15 pb-15">About</h1></center>
+                    <p align="justify" class="font-white pt-15 pb-15 lh">
+                        Our team have six people, They are Mrs.Kouy Mr.Somaly Mr.Try Sokhumvichana Mr.Try Sophearith
+                        Mr.Chhun Lada Mr.Hean Mach and Mr.Khong Sambrathna. We have been doing this for three months.
+                        So on 05-11-2021 this asignment completed we are very happy to see our work. It isn't
+                        perfect but We are do our best to achieve the ultimate goal.
+                    </p>
+                </div>
+                <div id="contact-us">
+                    <div id="form">
+                        <center><h3>Contact Us</h3></center>
+                        <input type="text" placeholder="Subject" id="subject">
+                        <input type="email" placeholder="Email" id="email">
+                        <textarea placeholder="Message..." id="message"></textarea>
+                        <input type="submit" value="Submit" class="btn contact-submit">
+                    </div>
+                </div>
+                <footer>
+                    <small>Copyright © 2021 Racing.com. All rights reserved.</small>
+                </footer>
+            </div>
+        </div>
+        <img id="scroll-top" src="img/up-arrow.png" alt="scroll to top">
+        <!--Audio-->
+        <audio controls loop id="RacingSound"> 
+            <source src="audio/Racing Car  Sound Effect.mp3" type="audio/mpeg">
+        </audio>
+        <audio controls id="CelebratingSound">
+            <source src="audio/Celebrating Sound Effect  I Merles Channel.mp3" type="audio/mpeg">
+        </audio>
+    </div>
     <!--Link Script-->
-    <script>
-        //Night Mode
-        const sun = document.querySelector(".sun");
-        const body = document.querySelector("body");
-        sun.onclick = function()
-        {
-            body.classList.toggle("dark");
-        }
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
